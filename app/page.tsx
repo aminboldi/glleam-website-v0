@@ -114,7 +114,7 @@ export default function GlleamPage() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/agentic-hero-9yW3wnTNMfn2U6lsVhTTZSJFEvAoSj.mp4"
+          src="/images/agentic-hero.mp4"
           style={{
             transform: videoReady ? "scale(1.05)" : "scale(0.85)",
             transition: "transform 2s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -135,8 +135,9 @@ export default function GlleamPage() {
 
         {/* Title + principles — anchored to bottom left */}
         <div className="absolute inset-x-0 bottom-0 z-30 flex flex-col px-6 md:px-12 pb-12 max-w-3xl">
-          {/* Title */}
-          <h1
+          {/* Glass card for title + supporting copy */}
+          <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ background: "rgba(255,255,255,0.50)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
+            <h1
             className="text-5xl sm:text-6xl md:text-7xl font-light text-[#111] leading-[1.0] tracking-tight mb-6"
             style={{
               fontFamily: '"IBM Plex Sans", sans-serif',
@@ -146,7 +147,7 @@ export default function GlleamPage() {
               transition: "opacity 1s cubic-bezier(0.16,1,0.3,1) 0ms, filter 1s cubic-bezier(0.16,1,0.3,1) 0ms, transform 1s cubic-bezier(0.16,1,0.3,1) 0ms",
             }}
           >
-            Prove what makes AI<br />recommend your brand.
+            Discover who AI recommends
           </h1>
 
           {/* Supporting copy + CTAs */}
@@ -172,6 +173,8 @@ export default function GlleamPage() {
             <p className="text-xs text-black/35 tracking-wide mb-8">
               Built for growth, SEO, content, product-marketing, and digital-PR teams.
             </p>
+          </div>
+
           </div>
 
           {/* 3 product principles — staggered after copy */}
@@ -211,10 +214,10 @@ export default function GlleamPage() {
 
           <div className="grid grid-cols-12 grid-rows-auto gap-3" onMouseMove={handleMouse}>
             {/* Big left card — full width now that multi-agent is removed */}
-            <BentoCard className="col-span-12 p-8 min-h-[200px] flex flex-col justify-between relative overflow-hidden" delay={0}>
+            <BentoCard className="col-span-12 p-8 min-h-[340px] flex flex-col justify-between relative overflow-hidden" delay={0}>
               {/* Arc background image — always fills container, objects pushed to bottom third */}
               <img
-                src="/images/arc.png"
+                src="/images/arc.webp"
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -307,10 +310,10 @@ export default function GlleamPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3" onMouseMove={handleMouse}>
             {[
-              { n: "01", title: "Define the buyer journey",  desc: "Identify the high-value recommendation, comparison, alternative, integration, and category questions that influence customer shortlists.", delay: 0,   img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/define-5aafAmGBrxZpOqJ3XLHY3n3qzC2I5K.png" },
-              { n: "02", title: "Observe and diagnose", desc: "Run repeated observations, compare competitors, extract cited sources, and identify the claims or evidence gaps shaping the answer.", delay: 80,  img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/compose-5RT5VR4f1Y3GoFmovqTKLTG4UXp3g2.png" },
-              { n: "03", title: "Intervene and experiment",    desc: "Implement a focused treatment such as improving product evidence, updating documentation, correcting a third-party profile, or strengthening a comparison page.", delay: 140, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/test-zm8guZwxJHtwWsJ7XO4B0CF7GzlNK8.png" },
-              { n: "04", title: "Measure business impact",  desc: "Compare the treatment against its baseline and control group, then connect the result to qualified engagement and pipeline where possible.", delay: 200, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/deploy-an8fgHSLzniojkcmRyGGIFQUJF9T5J.png" },
+              { n: "01", title: "Define the buyer journey",  desc: "Identify the high-value recommendation, comparison, alternative, integration, and category questions that influence customer shortlists.", delay: 0,   img: "/images/define.webp" },
+              { n: "02", title: "Observe and diagnose", desc: "Run repeated observations, compare competitors, extract cited sources, and identify the claims or evidence gaps shaping the answer.", delay: 80,  img: "/images/compose.webp" },
+              { n: "03", title: "Intervene and experiment",    desc: "Implement a focused treatment such as improving product evidence, updating documentation, correcting a third-party profile, or strengthening a comparison page.", delay: 140, img: "/images/test.webp" },
+              { n: "04", title: "Measure business impact",  desc: "Compare the treatment against its baseline and control group, then connect the result to qualified engagement and pipeline where possible.", delay: 200, img: "/images/deploy.webp" },
             ].map((step) => (
               <BentoCard key={step.n} className="relative overflow-hidden flex flex-col min-h-[320px]" delay={step.delay}>
                 {/* Image at top — mask fades it out strongly before the bottom edge */}
@@ -360,9 +363,9 @@ export default function GlleamPage() {
           {/* Mobile: flex-col, image + cards stacked. Desktop: image fills block, cards absolute */}
           <div className="rounded-2xl overflow-hidden border border-black/[0.07] flex flex-col md:block md:relative" onMouseMove={handleMouse}>
             {/* Image */}
-            <div className="relative w-full h-[280px] md:h-[480px] shrink-0">
+            <div className="relative w-full h-[280px] md:h-[560px] shrink-0">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Org%20Arc%20-%20Upscaled-Sk90jShfu7nltLnhoQbaMJC1YaQKuU.png"
+                src="/images/Org Arc - Upscaled.webp"
                 alt="Agent orchestration architecture"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
@@ -380,7 +383,7 @@ export default function GlleamPage() {
               >
                 <Tag>EVIDENCE MAP</Tag>
                 <h3 className="mt-3 text-lg font-light mb-2">Build an auditable source and claim map</h3>
-                <p className="text-xs text-black/45 leading-relaxed mb-4">Every finding connects the buyer question, observed answer, competitor advantage, supporting evidence, proposed treatment, control group, and measurement plan.</p>
+                <p className="text-xs text-black/45 leading-relaxed mb-4">Connect every finding to its buyer question, evidence, competitor claim, treatment, and measurement plan.</p>
                 <div className="bg-black/[0.05] rounded-lg border border-black/[0.07] p-3 font-mono text-[10px] text-black/50 leading-relaxed whitespace-pre-wrap">
                   <span className="text-black/25"># illustrative example</span>{"\n"}
                   <span className="text-amber-700/70">buyer_question</span>:{"\n"}
@@ -396,21 +399,7 @@ export default function GlleamPage() {
                 <p className="mt-3 text-[10px] text-black/30 leading-relaxed">Illustrative example — actual findings depend on the customer, category, sources, and selected AI surfaces.</p>
               </div>
 
-              <div
-                className="rounded-xl border border-white/50 p-6"
-                style={{
-                  backdropFilter: "blur(24px)",
-                  WebkitBackdropFilter: "blur(24px)",
-                  background: "rgba(255,255,255,0.60)",
-                }}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500/80 animate-pulse" />
-                  <span className="text-xs text-black/40 tracking-widest">CONTEXT RETAINED</span>
-                </div>
-                <p className="text-sm font-light mb-1">Observation context stays attached</p>
-                <p className="text-xs text-black/45 leading-relaxed">GLLEAM retains the exact prompt, prompt cluster, product surface, model where available, collection method, date, geography, language, citations, response, repeated-run context, treatment, and interpretation.</p>
-              </div>
+
             </div>
           </div>
         </div>
@@ -432,7 +421,7 @@ export default function GlleamPage() {
             {/* Left side — descriptions */}
             <div className="space-y-6">
               <p className="text-sm text-black/45 leading-relaxed">
-                AI-generated answers vary across prompt wording, repeated runs, models, product surfaces, geography, language, retrieval behavior, source freshness, and time. GLLEAM makes that uncertainty visible instead of hiding it behind a single deterministic score.
+                AI answers vary across prompts, models, geography, language, and time. GLLEAM makes that uncertainty visible instead of hiding it behind a single deterministic score.
               </p>
 
               <div className="space-y-4">
@@ -630,7 +619,7 @@ export default function GlleamPage() {
           </div>
 
           <p className="text-xs text-black/35 leading-relaxed max-w-2xl mx-auto text-center mt-10">
-            The pilot is best suited to B2B SaaS companies with an established SEO, content, growth, or product-marketing program and the ability to implement one focused intervention. GLLEAM measures and tests observed AI-discovery outcomes. It does not guarantee placement or recommendation by third-party AI systems.
+            The pilot suits B2B SaaS companies with an established SEO, content, or product-marketing program and the ability to implement one focused intervention. GLLEAM measures and tests observed AI-discovery outcomes — it does not guarantee placement by any third-party AI system.
           </p>
         </div>
       </section>
@@ -639,7 +628,7 @@ export default function GlleamPage() {
       <section className="relative py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06] overflow-hidden">
         {/* Glass panels image — anchored to bottom center */}
         <img
-          src="/images/footer.png"
+          src="/images/footer.webp"
           alt=""
           aria-hidden="true"
           className="absolute bottom-0 left-0 w-full object-cover object-bottom pointer-events-none select-none"
@@ -691,7 +680,7 @@ export default function GlleamPage() {
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <span className="font-pixel text-xs tracking-[0.25em] text-black/50">GLLEAM</span>
+          <span className="flex items-center gap-2 font-pixel text-xs tracking-[0.25em] text-black/50"><img src="/images/logo.svg" alt="" className="h-4 opacity-50" />GLLEAM</span>
 
           {/* Product links */}
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">

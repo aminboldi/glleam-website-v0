@@ -1,26 +1,34 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    @media (prefers-color-scheme: light) {
-      .background { fill: black; }
-      .foreground { fill: white; }
-    }
-    @media (prefers-color-scheme: dark) {
-      .background { fill: white; }
-      .foreground { fill: black; }
-    }
-  </style>
-  <g clip-path="url(#clip0_7960_43945)">
-    <rect class="background" width="180" height="180" rx="37" />
-    <g style="transform: scale(95%); transform-origin: center">
-      <path class="foreground"
-        d="M101.141 53H136.632C151.023 53 162.689 64.6662 162.689 79.0573V112.904H148.112V79.0573C148.112 78.7105 148.098 78.3662 148.072 78.0251L112.581 112.898C112.701 112.902 112.821 112.904 112.941 112.904H148.112V126.672H112.941C98.5504 126.672 86.5638 114.891 86.5638 100.5V66.7434H101.141V100.5C101.141 101.15 101.191 101.792 101.289 102.422L137.56 66.7816C137.255 66.7563 136.945 66.7434 136.632 66.7434H101.141V53Z" />
-      <path class="foreground"
-        d="M65.2926 124.136L14 66.7372H34.6355L64.7495 100.436V66.7372H80.1365V118.47C80.1365 126.278 70.4953 129.958 65.2926 124.136Z" />
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="901.53595mm"
+   height="514.89679mm"
+   viewBox="0 0 901.53595 514.89679"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(454.55417,204.52292)">
+    <path
+       id="path3"
+       d="m 218.92857,-85.319324 c -112.08456,0 -343.93716,0 -456.02524,0 l -79.81595,138.246537 79.81595,138.246567 h 159.635478 l 62.335832,-107.964106 -159.63196,-0.0034 29.1324,-50.457788 H 37.121011 L 72.275325,32.745008 -48.328821,241.6318 H -266.22552 C -302.54046,178.72799 -338.85894,115.82772 -375.17636,52.927424 l 108.95084,-188.707864 h 514.28646 l -29.13237,50.461328"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.0352777" />
+    <path
+       id="path4"
+       d="m -276.78417,-154.06159 h 536.28218 l 29.1324,-50.46133 H -305.91654 L -454.55417,52.927213 -305.91654,310.37386 H -8.6377765 C 37.036344,231.26344 139.80405,51.847713 190.69224,-36.410222 h -0.003 -58.20831 -238.17439 l -29.1324,50.457814 H 103.48568 L -37.770068,259.91252 -276.78407,259.91596 -396.284,52.927133 -276.78407,-154.06167"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.0352777" />
+    <path
+       id="path5"
+       d="M 99.460389,259.91604 367.60324,-204.52292 h -58.26125 l -3.33375,5.76791 L 41.192075,259.91604 12.063223,310.37386 H 70.327991 324.43734 l 29.1324,-50.45782 H 99.460389"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.0352777" />
+    <path
+       id="path6"
+       d="M 446.98176,-204.52292 218.52641,191.17026 h 174.72728 l -29.13237,50.46485 H 131.12218 C 216.97769,92.911045 302.85086,-55.805926 388.71344,-204.52292 h 58.26832"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.0352777" />
   </g>
-  <defs>
-    <clipPath id="clip0_7960_43945">
-      <rect width="180" height="180" fill="white" />
-    </clipPath>
-  </defs>
 </svg>

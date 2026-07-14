@@ -34,7 +34,7 @@ export default function ApplyPage() {
       {/* Simple top bar */}
       <header className="px-6 md:px-12 lg:px-20 py-6 border-b border-black/[0.06]">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <a href="/" className="font-pixel text-xs tracking-[0.25em] text-black/70">GLLEAM</a>
+          <a href="/" className="flex items-center gap-2 font-pixel text-xs tracking-[0.25em] text-black/70 hover:text-black transition-colors"><img src="/images/logo.svg" alt="" className="h-4" />GLLEAM</a>
           <a href="/" className="text-[11px] text-black/50 hover:text-black transition-colors tracking-widest">← BACK</a>
         </div>
       </header>

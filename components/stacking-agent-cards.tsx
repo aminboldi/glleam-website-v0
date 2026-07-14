@@ -8,28 +8,28 @@ const AGENTS = [
     title: "Questions that reflect real buying decisions",
     desc: "Build a customer-specific measurement universe from Search Console data, paid-search queries, sales conversations, support questions, product documentation, category research, and customer-approved prompts.",
     stats: [{ v: "INPUTS", l: "Search, sales, support, and product data" }, { v: "OUTPUT", l: "A commercially weighted prompt panel" }],
-    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/researcher-CvhqOuV6irGwBOnJoTGFlXdbyYBRjb.png",
+    img: "/images/researcher.webp",
   },
   {
     label: "OBSERVATION",
     title: "Patterns instead of isolated screenshots",
     desc: "Measure recommendation inclusion, mentions, citations, competitors, source adoption, narrative consistency, and answer stability through repeated runs and prompt paraphrases.",
     stats: [{ v: "METHOD", l: "Repeated observations" }, { v: "OUTPUT", l: "A defensible baseline" }],
-    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coder-9bItvCegU6TXUqbX3tUXGBAtvkBkXp.png",
+    img: "/images/coder.webp",
   },
   {
     label: "EVIDENCE GRAPH",
     title: "Trace recommendations back to claims and sources",
     desc: "Map the relationships among buyer questions, brands, competitors, product claims, owned pages, third-party evidence, citations, and AI-generated answers.",
     stats: [{ v: "MAP", l: "Questions, claims, pages, and sources" }, { v: "OUTPUT", l: "An actionable explanation of the gap" }],
-    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/analyst-Ysxnqg7Fpy2cfA56PiIttv1KximMhT.png",
+    img: "/images/analyst.webp",
   },
   {
     label: "EXPERIMENTS",
     title: "Test what changes the result",
     desc: "Manage hypotheses, treatments, controls, baselines, measurement periods, outcomes, interpretation, and experiment history without forcing every result into a success story.",
     stats: [{ v: "DESIGN", l: "Treatment and control groups" }, { v: "OUTPUT", l: "A supported commercial decision" }],
-    img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/executor-o1q6509qMLXMtpBIGo49vcgOu34sI1.png",
+    img: "/images/executor.webp",
   },
 ]
 
