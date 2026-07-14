@@ -11,21 +11,20 @@ const _courierPrime = Courier_Prime({ weight: ["400", "700"], subsets: ["latin"]
 const _ibmPlexSans = IBM_Plex_Sans({ weight: ["300", "400", "500", "600"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Agentic — Autonomous AI Agents at Scale',
-  description: 'Deploy autonomous AI agents that think, act, and execute across any workflow. Connect 200+ integrations, run agents in parallel, and ship faster with the Agentic platform.',
-  keywords: ['AI agents', 'autonomous agents', 'LLM orchestration', 'AI automation', 'multi-agent platform'],
-  authors: [{ name: 'Agentic' }],
+  title: 'GLLEAM — AI Discovery Experimentation Platform',
+  description: 'GLLEAM helps B2B marketing teams understand why AI assistants recommend competitors, run controlled AI-discovery experiments, and connect the results to qualified pipeline.',
+  keywords: ['AI discovery', 'AI visibility', 'AI search optimization', 'B2B SaaS marketing', 'controlled experiments'],
+  authors: [{ name: 'GLLEAM' }],
   openGraph: {
-    title: 'Agentic — Autonomous AI Agents at Scale',
-    description: 'Deploy autonomous AI agents that think, act, and execute across any workflow.',
+    title: 'Prove what makes AI recommend your brand.',
+    description: 'Turn AI visibility gaps into evidence-backed marketing experiments and measurable commercial outcomes.',
     type: 'website',
-    url: 'https://agentic.ai',
-    siteName: 'Agentic',
+    siteName: 'GLLEAM',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agentic — Autonomous AI Agents at Scale',
-    description: 'Deploy autonomous AI agents that think, act, and execute across any workflow.',
+    title: 'Prove what makes AI recommend your brand.',
+    description: 'Turn AI visibility gaps into evidence-backed marketing experiments and measurable commercial outcomes.',
   },
   icons: {
     icon: [

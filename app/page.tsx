@@ -2,9 +2,8 @@
 
 import React, { useRef, useEffect, useState, useCallback } from "react"
 import { IntroAnimation, INTRO_DURATION_MS, HERO_REVEAL_MS } from "@/components/intro-animation"
-import { AgentInterface } from "@/components/agent-interface"
 import { PixelIcon } from "@/components/pixel-icon"
-import { LiveAgentFeed, LiveAgentCounter } from "@/components/live-agent-feed"
+import { LiveAgentFeed } from "@/components/live-agent-feed"
 import { RevealText } from "@/components/reveal-text"
 import { StackingAgentCards } from "@/components/stacking-agent-cards"
 import { MobileNav } from "@/components/mobile-nav"
@@ -76,9 +75,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 }
 
 // ─── Main page ────────────────────────────────────────────────────────────────
-export default function AgenticPage() {
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+export default function GlleamPage() {
   const [heroReady, setHeroReady] = useState(false)
   const [videoReady, setVideoReady] = useState(false)
   const handleIntroDone = useCallback(() => {
@@ -136,11 +133,11 @@ export default function AgenticPage() {
         {/* Spacer so hero content doesn't sit under the fixed nav */}
         <div className="h-20" />
 
-        {/* Title + metrics — anchored to bottom left */}
+        {/* Title + principles — anchored to bottom left */}
         <div className="absolute inset-x-0 bottom-0 z-30 flex flex-col px-6 md:px-12 pb-12 max-w-3xl">
           {/* Title */}
           <h1
-            className="text-6xl sm:text-7xl md:text-8xl font-light text-[#111] leading-[1.0] tracking-tight mb-10"
+            className="text-5xl sm:text-6xl md:text-7xl font-light text-[#111] leading-[1.0] tracking-tight mb-6"
             style={{
               fontFamily: '"IBM Plex Sans", sans-serif',
               opacity: heroReady ? 1 : 0,
@@ -149,15 +146,40 @@ export default function AgenticPage() {
               transition: "opacity 1s cubic-bezier(0.16,1,0.3,1) 0ms, filter 1s cubic-bezier(0.16,1,0.3,1) 0ms, transform 1s cubic-bezier(0.16,1,0.3,1) 0ms",
             }}
           >
-            Build &amp;<br />orchestrate AI<br />agents while<br />you sleep.
+            Prove what makes AI<br />recommend your brand.
           </h1>
 
-          {/* 3 metrics — staggered after title */}
+          {/* Supporting copy + CTAs */}
+          <div
+            style={{
+              opacity: heroReady ? 1 : 0,
+              filter: heroReady ? "blur(0px)" : "blur(16px)",
+              transform: heroReady ? "translateY(0px)" : "translateY(20px)",
+              transition: "opacity 0.8s cubic-bezier(0.16,1,0.3,1) 120ms, filter 0.8s cubic-bezier(0.16,1,0.3,1) 120ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) 120ms",
+            }}
+          >
+            <p className="text-sm sm:text-base text-black/50 leading-relaxed max-w-md mb-8">
+              Buyers are asking AI assistants which products to consider before they visit vendor websites. GLLEAM reveals why competitors enter those recommendations, turns visibility gaps into controlled marketing experiments, and measures whether the changes create qualified pipeline.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 mb-6">
+              <a href="/apply" className="px-6 py-3 bg-[#111] text-white text-xs rounded-xl hover:bg-[#333] transition-colors tracking-widest font-medium text-center">
+                APPLY FOR A DESIGN-PARTNER PILOT
+              </a>
+              <a href="#workflow" className="px-6 py-3 border border-black/15 text-black/60 text-xs rounded-xl hover:border-black/30 hover:text-black hover:bg-black/[0.03] transition-all tracking-widest font-medium text-center">
+                SEE HOW GLLEAM WORKS
+              </a>
+            </div>
+            <p className="text-xs text-black/35 tracking-wide mb-8">
+              Built for growth, SEO, content, product-marketing, and digital-PR teams.
+            </p>
+          </div>
+
+          {/* 3 product principles — staggered after copy */}
           <div className="flex gap-8 sm:gap-12">
             {[
-              { value: "50M+", label: "Tasks" },
-              { value: "99.9%", label: "Uptime" },
-              { value: "180+", label: "Countries" },
+              { value: "REPEATED", label: "Observations" },
+              { value: "SOURCE-LEVEL", label: "Diagnosis" },
+              { value: "PIPELINE-LINKED", label: "Attribution" },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -165,10 +187,10 @@ export default function AgenticPage() {
                   opacity: heroReady ? 1 : 0,
                   filter: heroReady ? "blur(0px)" : "blur(16px)",
                   transform: heroReady ? "translateY(0px)" : "translateY(20px)",
-                  transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms, filter 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${120 + i * 80}ms`,
+                  transition: `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${200 + i * 80}ms, filter 0.8s cubic-bezier(0.16,1,0.3,1) ${200 + i * 80}ms, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${200 + i * 80}ms`,
                 }}
               >
-                <div className="text-3xl sm:text-4xl text-[#111] font-light tracking-tight" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.value}</div>
+                <div className="text-base sm:text-lg text-[#111] font-light tracking-tight" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.value}</div>
                 <div className="text-xs text-black/40 tracking-widest uppercase mt-1" style={{ fontFamily: '"IBM Plex Sans", sans-serif' }}>{stat.label}</div>
               </div>
             ))}
@@ -181,9 +203,9 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="platform" size={40} />
-            <div className="mt-4"><Tag>PLATFORM</Tag></div>
+            <div className="mt-4"><Tag>PRODUCT</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05]">
-              {"Everything you need\nto ship agents."}
+              {"Everything you need\nto turn visibility into evidence."}
             </RevealText>
           </div>
 
@@ -217,9 +239,9 @@ export default function AgenticPage() {
                 <div className="w-10 h-10 rounded-xl border border-black/10 bg-white/60 flex items-center justify-center mb-6" style={{ backdropFilter: "blur(8px)" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><path d="m4.93 4.93 2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
                 </div>
-                <h3 className="text-xl font-light mb-3">Visual Agent Builder</h3>
+                <h3 className="text-xl font-light mb-3">Observe the buyer journey</h3>
                 <p className="text-sm text-black/45 leading-relaxed max-w-sm">
-                  Drag, connect, and configure agents through an intuitive graph editor. No boilerplate. Ship in minutes, not days.
+                  Track where your brand is recommended, mentioned, cited, omitted, or misrepresented across commercially important buyer questions.
                 </p>
               </div>
             </BentoCard>
@@ -229,24 +251,24 @@ export default function AgenticPage() {
               <div className="w-10 h-10 rounded-xl border border-black/10 flex items-center justify-center mb-5">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
               </div>
-              <h3 className="text-lg font-light mb-2">Real-time Monitoring</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Trace every decision. Debug with full execution history and live logs.</p>
+              <h3 className="text-lg font-light mb-2">Diagnose the evidence gap</h3>
+              <p className="text-sm text-black/45 leading-relaxed">Identify the competitor claims, owned pages, third-party sources, comparisons, and documentation influencing AI-generated answers.</p>
             </BentoCard>
 
             <BentoCard className="col-span-12 md:col-span-4 p-8 min-h-[200px]" delay={160}>
               <div className="w-10 h-10 rounded-xl border border-black/10 flex items-center justify-center mb-5">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
               </div>
-              <h3 className="text-lg font-light mb-2">Memory & Context</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Persistent long-term memory across sessions. Agents learn from every interaction.</p>
+              <h3 className="text-lg font-light mb-2">Run controlled experiments</h3>
+              <p className="text-sm text-black/45 leading-relaxed">Turn each finding into a measurable hypothesis with a treatment, baseline, target prompt group, control group, and observation period.</p>
             </BentoCard>
 
             <BentoCard className="col-span-12 md:col-span-4 p-8 min-h-[200px]" delay={200}>
               <div className="w-10 h-10 rounded-xl border border-black/10 flex items-center justify-center mb-5">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3 className="text-lg font-light mb-2">Guardrails & Permissions</h3>
-              <p className="text-sm text-black/45 leading-relaxed">Define what agents can and cannot do. Fine-grained access control per tool.</p>
+              <h3 className="text-lg font-light mb-2">Attribute commercial impact</h3>
+              <p className="text-sm text-black/45 leading-relaxed">Connect changes in AI discovery to qualified traffic, demo requests, assisted conversions, opportunities, and pipeline where data is available.</p>
             </BentoCard>
           </div>
         </div>
@@ -258,13 +280,13 @@ export default function AgenticPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
               <PixelIcon type="agents" size={40} />
-              <div className="mt-4"><Tag>AGENT TYPES</Tag></div>
+              <div className="mt-4"><Tag>PRODUCT MODULES</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-                {"Plug-and-play agents\nready to deploy."}
+                {"Four connected layers.\nOne evidence loop."}
               </RevealText>
             </div>
             <p className="text-sm text-black/45 leading-relaxed max-w-xs">
-              Start with a pre-built agent or compose your own from primitives. Every agent is versioned, testable, and observable.
+              GLLEAM moves beyond monitoring by connecting buyer intent, repeated observations, evidence analysis, and controlled experimentation in one auditable workflow.
             </p>
           </div>
 
@@ -277,18 +299,18 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="workflow" size={40} />
-            <div className="mt-4"><Tag>WORKFLOW</Tag></div>
+            <div className="mt-4"><Tag>EVIDENCE LOOP</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"From idea to running agent\nin four steps."}
+              {"From buyer question\nto measurable outcome."}
             </RevealText>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3" onMouseMove={handleMouse}>
             {[
-              { n: "01", title: "Define",  desc: "Describe your agent in plain language. Set objectives, tools, and boundaries.", delay: 0,   img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/define-5aafAmGBrxZpOqJ3XLHY3n3qzC2I5K.png" },
-              { n: "02", title: "Compose", desc: "Chain agents together in the visual editor. Wire triggers, conditions, and outputs.", delay: 80,  img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/compose-5RT5VR4f1Y3GoFmovqTKLTG4UXp3g2.png" },
-              { n: "03", title: "Test",    desc: "Run sandboxed simulations. Inspect every decision in the execution trace.", delay: 140, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/test-zm8guZwxJHtwWsJ7XO4B0CF7GzlNK8.png" },
-              { n: "04", title: "Deploy",  desc: "Push globally in one click. Agents auto-scale, self-heal, and report back.", delay: 200, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/deploy-an8fgHSLzniojkcmRyGGIFQUJF9T5J.png" },
+              { n: "01", title: "Define the buyer journey",  desc: "Identify the high-value recommendation, comparison, alternative, integration, and category questions that influence customer shortlists.", delay: 0,   img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/define-5aafAmGBrxZpOqJ3XLHY3n3qzC2I5K.png" },
+              { n: "02", title: "Observe and diagnose", desc: "Run repeated observations, compare competitors, extract cited sources, and identify the claims or evidence gaps shaping the answer.", delay: 80,  img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/compose-5RT5VR4f1Y3GoFmovqTKLTG4UXp3g2.png" },
+              { n: "03", title: "Intervene and experiment",    desc: "Implement a focused treatment such as improving product evidence, updating documentation, correcting a third-party profile, or strengthening a comparison page.", delay: 140, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/test-zm8guZwxJHtwWsJ7XO4B0CF7GzlNK8.png" },
+              { n: "04", title: "Measure business impact",  desc: "Compare the treatment against its baseline and control group, then connect the result to qualified engagement and pipeline where possible.", delay: 200, img: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/deploy-an8fgHSLzniojkcmRyGGIFQUJF9T5J.png" },
             ].map((step) => (
               <BentoCard key={step.n} className="relative overflow-hidden flex flex-col min-h-[320px]" delay={step.delay}>
                 {/* Image at top — mask fades it out strongly before the bottom edge */}
@@ -324,13 +346,13 @@ export default function AgenticPage() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
             <div>
               <PixelIcon type="integrations" size={40} />
-              <div className="mt-4"><Tag>INTEGRATIONS</Tag></div>
+              <div className="mt-4"><Tag>EVIDENCE GRAPH</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-                {"Connect any tool.\nControl any system."}
+                {"Connect AI recommendations\nto the evidence behind them."}
               </RevealText>
             </div>
-            <p className="text-sm text-black/45 leading-relaxed max-w-xs">
-              200+ native connectors. Everything from Slack to your internal database. Build custom tools with our SDK in minutes.
+            <p className="text-sm text-black/45 leading-relaxed max-w-sm">
+              A visibility score can show that a competitor appears more often. It cannot explain what the marketing team should do next. GLLEAM traces recurring recommendations back to specific claims, pages, citations, and third-party sources, then converts the gap into a testable intervention.
             </p>
           </div>
 
@@ -356,17 +378,22 @@ export default function AgenticPage() {
                   background: "rgba(255,255,255,0.60)",
                 }}
               >
-                <Tag>SDK</Tag>
-                <h3 className="mt-3 text-lg font-light mb-2">Build custom tools</h3>
-                <p className="text-xs text-black/45 leading-relaxed mb-4">Define any function as a tool your agents can call. TypeScript and Python.</p>
-                <div className="bg-black/[0.05] rounded-lg border border-black/[0.07] p-3 font-mono text-[11px] text-black/50 leading-relaxed">
-                  <span className="text-black/25">// tool definition</span><br />
-                  <span className="text-blue-600/70">defineTool</span>{"({"}<br />
-                  {"  "}<span className="text-amber-700/70">name</span>: <span className="text-green-700/70">&apos;fetchPrice&apos;</span>,<br />
-                  {"  "}<span className="text-amber-700/70">run</span>: <span className="text-black/35">async (q) </span>={">"}<br />
-                  {"    "}<span className="text-blue-600/70">api</span>.get(q)<br />
-                  {"})"}
+                <Tag>EVIDENCE MAP</Tag>
+                <h3 className="mt-3 text-lg font-light mb-2">Build an auditable source and claim map</h3>
+                <p className="text-xs text-black/45 leading-relaxed mb-4">Every finding connects the buyer question, observed answer, competitor advantage, supporting evidence, proposed treatment, control group, and measurement plan.</p>
+                <div className="bg-black/[0.05] rounded-lg border border-black/[0.07] p-3 font-mono text-[10px] text-black/50 leading-relaxed whitespace-pre-wrap">
+                  <span className="text-black/25"># illustrative example</span>{"\n"}
+                  <span className="text-amber-700/70">buyer_question</span>:{"\n"}
+                  {"  "}<span className="text-green-700/70">&quot;Best compliance automation platforms?&quot;</span>{"\n"}
+                  <span className="text-amber-700/70">observation</span>:{"\n"}
+                  {"  "}<span className="text-blue-600/70">brand_inclusion</span>: <span className="text-green-700/70">&quot;21%&quot;</span>{"\n"}
+                  {"  "}<span className="text-blue-600/70">competitor_a</span>: <span className="text-green-700/70">&quot;63%&quot;</span>{"\n"}
+                  <span className="text-amber-700/70">recommended_experiment</span>:{"\n"}
+                  {"  "}<span className="text-black/35">- update compliance page</span>{"\n"}
+                  {"  "}<span className="text-black/35">- add implementation evidence</span>{"\n"}
+                  {"  "}<span className="text-black/35">- correct third-party comparison</span>
                 </div>
+                <p className="mt-3 text-[10px] text-black/30 leading-relaxed">Illustrative example — actual findings depend on the customer, category, sources, and selected AI surfaces.</p>
               </div>
 
               <div
@@ -379,9 +406,10 @@ export default function AgenticPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-500/80 animate-pulse" />
-                  <span className="text-xs text-black/40 tracking-widest">LIVE API</span>
+                  <span className="text-xs text-black/40 tracking-widest">CONTEXT RETAINED</span>
                 </div>
-                <p className="text-sm text-black/45">Full REST + WebSocket API. Stream agent outputs directly into your product.</p>
+                <p className="text-sm font-light mb-1">Observation context stays attached</p>
+                <p className="text-xs text-black/45 leading-relaxed">GLLEAM retains the exact prompt, prompt cluster, product surface, model where available, collection method, date, geography, language, citations, response, repeated-run context, treatment, and interpretation.</p>
               </div>
             </div>
           </div>
@@ -393,9 +421,9 @@ export default function AgenticPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <PixelIcon type="platform" size={40} />
-            <div className="mt-4"><Tag>SECURITY</Tag></div>
+            <div className="mt-4"><Tag>METHODOLOGY</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"Enterprise-grade\nfrom day one."}
+              {"AI discovery measurement\nwithout false certainty."}
             </RevealText>
           </div>
 
@@ -404,14 +432,15 @@ export default function AgenticPage() {
             {/* Left side — descriptions */}
             <div className="space-y-6">
               <p className="text-sm text-black/45 leading-relaxed">
-                Every action is logged, every decision is traceable. Built for teams that need compliance without compromise.
+                AI-generated answers vary across prompt wording, repeated runs, models, product surfaces, geography, language, retrieval behavior, source freshness, and time. GLLEAM makes that uncertainty visible instead of hiding it behind a single deterministic score.
               </p>
 
               <div className="space-y-4">
                 {[
-                  { label: "SOC 2 Type II", desc: "Independently audited security controls" },
-                  { label: "Full Audit Trail", desc: "Every decision logged with full traceability" },
-                  { label: "Real-time Observability", desc: "Monitor, debug, and replay any execution" },
+                  { label: "Repeated observations", desc: "One answer is anecdotal. Repeated runs and prompt paraphrases reveal whether a recommendation pattern is stable or incidental." },
+                  { label: "Surface-level transparency", desc: "An API result may not reproduce a consumer-facing application. Every observation records how and where it was collected." },
+                  { label: "Treatment and control groups", desc: "Before-and-after movement is not automatically causal. GLLEAM uses baselines and untreated prompt groups where practical." },
+                  { label: "Auditable records", desc: "Every conclusion remains connected to its prompt, answer, sources, collection context, experiment treatment, result, and interpretation." },
                 ].map((item) => (
                   <div key={item.label} className="flex gap-4">
                     <div className="w-1 bg-black/10 rounded-full shrink-0" />
@@ -423,9 +452,9 @@ export default function AgenticPage() {
                 ))}
               </div>
 
-              {/* Compliance badges — vertical stack */}
+              {/* Methodology labels — vertical stack */}
               <div className="pt-4 flex flex-col gap-2">
-                {["SOC 2", "GDPR", "HIPAA Ready", "ISO 27001"].map((badge) => (
+                {["PROMPT CLUSTERS", "REPEATED RUNS", "CONTROL GROUPS", "CONFIDENCE RANGES"].map((badge) => (
                   <div key={badge} className="flex items-center gap-2 text-xs text-black/25">
                     <span className="w-1 h-1 rounded-full bg-black/25" />
                     {badge}
@@ -436,14 +465,14 @@ export default function AgenticPage() {
 
             {/* Right side — live audit log visualization */}
             <BentoCard className="p-6 lg:row-span-1" delay={0}>
-              <div className="text-xs text-black/30 tracking-widest uppercase mb-4">Live Audit Trail</div>
+              <div className="text-xs text-black/30 tracking-widest uppercase mb-4">Observation Record</div>
               <div className="space-y-2">
                 {[
-                  { time: "12:34:21", action: "agent_executed", status: "success" },
-                  { time: "12:34:18", action: "decision_logged", status: "success" },
-                  { time: "12:34:15", action: "tool_called", status: "success" },
-                  { time: "12:34:12", action: "memory_updated", status: "success" },
-                  { time: "12:34:09", action: "output_generated", status: "success" },
+                  { time: "12:34:21", action: "observation_collected", status: "success" },
+                  { time: "12:34:18", action: "citations_extracted", status: "success" },
+                  { time: "12:34:15", action: "competitor_claim_mapped", status: "success" },
+                  { time: "12:34:12", action: "evidence_gap_identified", status: "success" },
+                  { time: "12:34:09", action: "experiment_blueprint_created", status: "success" },
                 ].map((log, i) => (
                   <div
                     key={i}
@@ -477,7 +506,7 @@ export default function AgenticPage() {
         <div className="flex border-b border-black/[0.06]" style={{ animation: "marqueeLeft 28s linear infinite" }}>
           {[...Array(3)].map((_, rep) => (
             <div key={rep} className="flex shrink-0">
-              {["Web Research", "Code Generation", "Email Drafting", "Data Analysis", "PR Reviews", "Scheduling", "SQL Queries", "API Calls", "File Processing", "Monitoring"].map((cap) => (
+              {["Category Recommendations", "Competitor Comparisons", "Narrative Accuracy", "Integration Discovery", "Content Prioritization", "Digital PR Prioritization"].map((cap) => (
                 <div key={cap} className="flex items-center gap-6 px-10 py-5 border-r border-black/[0.06] shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-black/20 shrink-0" />
                   <span className="text-sm text-black/45 whitespace-nowrap tracking-wide">{cap}</span>
@@ -489,7 +518,7 @@ export default function AgenticPage() {
         <div className="flex" style={{ animation: "marqueeRight 22s linear infinite" }}>
           {[...Array(3)].map((_, rep) => (
             <div key={rep} className="flex shrink-0">
-              {["Report Writing", "Slack Summaries", "Lead Scoring", "Image Tagging", "Test Running", "Deployment", "Log Parsing", "Invoice Processing", "Meeting Notes", "Sentiment Analysis"].map((cap) => (
+              {["Expansion Research", "Commercial Attribution", "Source Influence", "Buyer-Intent Analysis", "Comparison Pages", "Product Positioning"].map((cap) => (
                 <div key={cap} className="flex items-center gap-6 px-10 py-5 border-r border-black/[0.06] shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-black/12 shrink-0" />
                   <span className="text-sm text-black/30 whitespace-nowrap tracking-wide">{cap}</span>
@@ -506,16 +535,19 @@ export default function AgenticPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <PixelIcon type="agents" size={40} />
-              <div className="mt-4"><Tag>LIVE RIGHT NOW</Tag></div>
+              <div className="mt-4"><Tag>ILLUSTRATIVE ANALYSIS</Tag></div>
               <RevealText className="mt-5 text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05]">
-                {"Agents working\n24 / 7, autonomously."}
+                {"One buyer question.\nA complete evidence trail."}
               </RevealText>
               <p className="mt-6 text-base text-black/40 leading-relaxed max-w-sm">
-                At any moment, thousands of agents are running tasks on behalf of teams around the world — no human in the loop.
+                GLLEAM does not stop at reporting whether a brand appeared. It identifies what repeatedly supports the winning recommendation, what is missing, and which intervention can be tested.
               </p>
-              <div className="mt-10 flex items-end gap-2">
-                <LiveAgentCounter />
-                <span className="text-black/30 text-sm mb-1 tracking-wide">agents active globally</span>
+              <div className="mt-10 flex items-end gap-3">
+                <span style={{ fontFamily: "monospace", fontSize: "clamp(3rem, 6vw, 5rem)", fontWeight: 300, color: "rgba(0,0,0,0.85)", lineHeight: 1, letterSpacing: "-0.02em" }}>4</span>
+                <span className="text-black/30 text-sm mb-1 tracking-wide">evidence gaps identified</span>
+              </div>
+              <div className="mt-3">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] tracking-widest font-sans text-black/40 bg-black/[0.04]">ILLUSTRATIVE EXAMPLE</span>
               </div>
             </div>
             <div className="relative">
@@ -528,37 +560,42 @@ export default function AgenticPage() {
       {/* ── PRICING ───────────────────────────────────���────������─────────────── */}
       <section id="pricing" className="py-32 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 flex flex-col items-center">
+          <div className="text-center mb-8 flex flex-col items-center">
             <PixelIcon type="pricing" size={40} />
-            <div className="mt-4"><Tag>PRICING</Tag></div>
+            <div className="mt-4"><Tag>DESIGN PARTNERS</Tag></div>
             <RevealText className="mt-5 text-4xl md:text-5xl font-light tracking-tight leading-[1.05]">
-              {"Pay as your agents grow."}
+              {"A structured pilot for teams\nready to test one meaningful intervention."}
             </RevealText>
           </div>
+          <p className="text-sm text-black/45 leading-relaxed max-w-xl mx-auto text-center mb-16">
+            GLLEAM is working with a focused group of B2B SaaS marketing teams to validate its observation, diagnosis, experimentation, and attribution workflow.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3" onMouseMove={handleMouse}>
             {[
               {
-                name: "Sandbox",
-                price: "Free",
-                sub: "Start experimenting",
-                features: ["5 agents", "1,000 tasks/mo", "Community support", "Basic traces"],
+                name: "Your baseline",
+                sub: "Understand the current AI discovery landscape",
+                features: ["Customer-specific buyer-intent prompt panel", "Brand and competitor baseline", "Recommendation and citation analysis", "Narrative-accuracy review", "Source and claim mapping"],
+                action: "PILOT FOUNDATION",
+                cta: false,
                 delay: 0,
               },
               {
-                name: "Builder",
-                price: "$49",
-                period: "/mo",
-                sub: "For teams shipping fast",
-                features: ["50 agents", "100K tasks/mo", "Priority support", "Full traces + replay", "Custom tools", "REST API"],
+                name: "Your experiment",
+                sub: "Turn one important gap into a measurable test",
+                features: ["Prioritized evidence gap", "Proposed treatment", "Target and control prompt groups", "Baseline and measurement period", "Post-intervention observations", "Results interpretation"],
+                action: "CORE PILOT",
+                cta: false,
                 highlight: true,
                 delay: 80,
               },
               {
-                name: "Enterprise",
-                price: "Custom",
-                sub: "For orgs at scale",
-                features: ["Unlimited agents", "Unlimited tasks", "Dedicated infra", "SOC 2 / HIPAA", "SLA guarantees", "Custom contracts"],
+                name: "Your partnership",
+                sub: "Help shape the product around real decisions",
+                features: ["Direct access to the founding team", "Collaborative experiment review", "Influence over product priorities", "Commercial attribution where data permits", "Optional anonymized research participation"],
+                action: "APPLY FOR A PILOT",
+                cta: true,
                 delay: 140,
               },
             ].map((plan) => (
@@ -568,31 +605,33 @@ export default function AgenticPage() {
                 delay={plan.delay}
               >
                 <div className="mb-8">
-                  <div className="font-pixel text-[11px] tracking-widest text-black/40 mb-4">{plan.name}</div>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-4xl font-light">{plan.price}</span>
-                    {plan.period && <span className="text-black/40 text-sm">{plan.period}</span>}
-                  </div>
-                  <p className="text-xs text-black/35 tracking-wide">{plan.sub}</p>
+                  <div className="text-xl font-light mb-2">{plan.name}</div>
+                  <p className="text-xs text-black/35 tracking-wide leading-relaxed">{plan.sub}</p>
                 </div>
                 <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map(f => (
-                    <li key={f} className="flex items-center gap-3 text-sm text-black/55">
-                      <div className="w-1 h-1 rounded-full bg-black/25 shrink-0" />
+                    <li key={f} className="flex items-start gap-3 text-sm text-black/55">
+                      <div className="w-1 h-1 rounded-full bg-black/25 shrink-0 mt-2" />
                       {f}
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 ${
-                  plan.highlight
-                    ? "bg-[#111] text-white hover:bg-[#333]"
-                    : "border border-black/10 text-black/60 hover:border-black/25 hover:text-black hover:bg-black/[0.04]"
-                }`}>
-                  {plan.name === "Enterprise" ? "CONTACT SALES" : "GET STARTED"}
-                </button>
+                {plan.cta ? (
+                  <a href="/apply" className="w-full py-3 rounded-xl text-sm tracking-widest transition-all duration-200 text-center bg-[#111] text-white hover:bg-[#333]">
+                    {plan.action}
+                  </a>
+                ) : (
+                  <div className={`w-full py-3 rounded-xl text-xs tracking-widest text-center ${plan.highlight ? "bg-black/[0.06] text-black/50" : "border border-black/10 text-black/40"}`}>
+                    {plan.action}
+                  </div>
+                )}
               </BentoCard>
             ))}
           </div>
+
+          <p className="text-xs text-black/35 leading-relaxed max-w-2xl mx-auto text-center mt-10">
+            The pilot is best suited to B2B SaaS companies with an established SEO, content, growth, or product-marketing program and the ability to implement one focused intervention. GLLEAM measures and tests observed AI-discovery outcomes. It does not guarantee placement or recommendation by third-party AI systems.
+          </p>
         </div>
       </section>
 
@@ -624,38 +663,27 @@ export default function AgenticPage() {
           }}
         />
         <div className="relative z-10 max-w-2xl mx-auto text-center">
+          <div className="mb-5 flex justify-center"><Tag>FROM VISIBILITY TO EVIDENCE</Tag></div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-[1.05] mb-6">
-            Start building your<br />agent workforce.
+            Stop guessing what will make<br />AI recommend your brand.
           </h2>
-          <p className="text-sm text-black/45 leading-relaxed mb-10">
-            Join thousands of teams deploying AI agents that work around the clock, across every timezone.
+          <p className="text-sm text-black/45 leading-relaxed mb-10 max-w-lg mx-auto">
+            Find the recommendation gaps that matter, understand the evidence behind them, and test the interventions most likely to create commercial impact.
           </p>
-          {!submitted ? (
-            <form
-              onSubmit={e => { e.preventDefault(); if (email) setSubmitted(true) }}
-              className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
+          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+            <a
+              href="/apply"
+              className="px-8 py-3 bg-[#111] text-white text-xs rounded-xl hover:bg-[#333] transition-colors tracking-widest font-medium"
             >
-              <input
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                className="flex-1 bg-white border border-black/10 rounded-xl px-4 py-3 text-sm text-[#111] placeholder:text-black/25 focus:outline-none focus:border-black/25 transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-8 py-3 bg-[#111] text-white text-sm rounded-xl hover:bg-[#333] transition-colors tracking-widest font-medium"
-              >
-                JOIN
-              </button>
-            </form>
-          ) : (
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-emerald-600/20 bg-emerald-50 text-emerald-700 text-sm">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              {"You're on the list. We'll be in touch."}
-            </div>
-          )}
+              APPLY FOR A DESIGN-PARTNER PILOT
+            </a>
+            <a
+              href="#security"
+              className="px-8 py-3 border border-black/15 text-black/60 text-xs rounded-xl hover:border-black/30 hover:text-black hover:bg-black/[0.03] transition-all tracking-widest font-medium"
+            >
+              VIEW THE METHODOLOGY
+            </a>
+          </div>
         </div>
       </section>
 
@@ -663,17 +691,15 @@ export default function AgenticPage() {
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <footer className="py-10 px-6 md:px-12 lg:px-20 border-t border-black/[0.06]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <span className="font-pixel text-xs tracking-[0.25em] text-black/50">AGENTIC</span>
+          <span className="font-pixel text-xs tracking-[0.25em] text-black/50">GLLEAM</span>
 
-          {/* Nav sections */}
+          {/* Product links */}
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             {[
-              { label: "Platform",     href: "#platform" },
-              { label: "Agents",       href: "#agents" },
-              { label: "Workflow",     href: "#workflow" },
-              { label: "Integrations", href: "#integrations" },
-              { label: "Live",         href: "#live" },
-              { label: "Pricing",      href: "#pricing" },
+              { label: "Product",        href: "#platform" },
+              { label: "Evidence Loop",  href: "#workflow" },
+              { label: "Methodology",    href: "#security" },
+              { label: "Design Partners", href: "#pricing" },
             ].map(l => (
               <a key={l.label} href={l.href} className="text-xs text-black/35 hover:text-black/70 transition-colors tracking-widest">{l.label}</a>
             ))}
@@ -684,15 +710,19 @@ export default function AgenticPage() {
             {[
               { label: "Privacy", href: "#" },
               { label: "Terms",   href: "#" },
-              { label: "Docs",    href: "#" },
-              { label: "GitHub",  href: "#" },
             ].map(l => (
               <a key={l.label} href={l.href} className="text-xs text-black/25 hover:text-black/55 transition-colors tracking-widest">{l.label}</a>
             ))}
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-black/[0.04]">
-          <span className="text-xs text-black/20">© 2026 Agentic. All rights reserved.</span>
+        <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-black/[0.04] flex flex-col gap-4">
+          <p className="text-xs text-black/40 leading-relaxed max-w-3xl">
+            GLLEAM helps B2B marketing teams identify why AI assistants recommend competitors, turn evidence gaps into controlled experiments, and measure the resulting commercial impact.
+          </p>
+          <p className="text-[11px] text-black/25 leading-relaxed max-w-3xl">
+            GLLEAM is an independent platform. It is not affiliated with or endorsed by OpenAI, Google, Anthropic, Perplexity, or other third-party AI providers. Third-party product and company names are trademarks of their respective owners.
+          </p>
+          <span className="text-xs text-black/20">© {new Date().getFullYear()} GLLEAM. All rights reserved.</span>
         </div>
       </footer>
     </div>
