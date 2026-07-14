@@ -5,13 +5,17 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 FROM base AS deps
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
+RUN apk add --no-cache curl
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ARG ASSETS_URL
+ENV ASSETS_URL=${ASSETS_URL}
+RUN sh scripts/fetch-assets.sh
 RUN pnpm build
 
 FROM base AS runner
